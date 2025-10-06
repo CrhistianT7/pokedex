@@ -26,6 +26,7 @@ const PokemonCard: React.FC<PokemonCardProps> = (props) => {
       setLoading(false);
     };
     fetchData();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (

@@ -1,19 +1,10 @@
-import { useEffect, useState } from "react";
-import type { Pokemon } from "../../models/pokemon";
-import { fetchAllPokemon } from "../../services/pokemon.service";
 import PokemonCard from "../PokemonCard/PokemonCard";
 import styles from "./PokemonList.module.css";
+import type { PokemonListProps } from "./PokemonList.types";
 
-const PokemonList = () => {
-  const [pokemonList, setPokemonList] = useState<Pokemon[]>([]);
+const PokemonList: React.FC<PokemonListProps> = (props) => {
+  const { pokemonList } = props;
 
-  useEffect(() => {
-    const fetchData = async () => {
-      const data = await fetchAllPokemon();
-      setPokemonList(data);
-    };
-    fetchData();
-  }, []);
   return pokemonList.length === 0 ? (
     <div>No hay pokemon en la lista</div>
   ) : (
